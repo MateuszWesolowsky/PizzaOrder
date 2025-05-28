@@ -1,6 +1,6 @@
 import type { CartItemTypes } from "../../types/types";
 import { formatCurrency } from "../../utils/helpers";
-import { Button } from "../ui/Button";
+import { DeleteItem } from "./DeleteItem";
 
 interface Props {
   item: CartItemTypes;
@@ -16,7 +16,7 @@ export const CartItem = ({
       </p>
       <div className="flex items-center justify-between sm:gap-6">
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
-        <Button type="small">Delete</Button>
+        <DeleteItem pizzaId={pizzaId} />
       </div>
     </li>
   );
