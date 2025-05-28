@@ -66,14 +66,3 @@ export const getUserName = (state: RootState) => state.user.userName;
 export const getTotalCartQuantity = createSelector([selectCart], (cart) =>
   cart.reduce((sum, item) => sum + item.quantity, 0),
 );
-
-export const getTotalCartPrice = createSelector([selectCart], (cart) =>
-  cart.reduce((sum, item) => sum + item.totalPrice, 0),
-);
-
-//nie trzeba memoizować, poznieważ id się zmieni zawsze
-// export const getCurrentQuantityById = (id: number) =>
-//   createSelector([selectCart], (cart) => cart.find((el) => el.pizzaId === id));
-
-export const getCurrentQuantityById = (id: number) => (state: RootState) =>
-  state.cart.cart.find((el) => el.pizzaId === id)?.quantity ?? 0;
