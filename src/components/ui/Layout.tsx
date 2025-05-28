@@ -12,7 +12,7 @@ export const Layout = () => {
     <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
       {isLoading && <Spinner />}
       <Header />
-      <div className="overflow-scroll">
+      <div className="overflow-y-scroll">
         <main className="mx-auto max-w-3xl">
           <Outlet />
         </main>
