@@ -3,6 +3,7 @@ import type { PizzaTypes } from "../../types/types";
 import { formatCurrency } from "../../utils/helpers";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import { DeleteItem } from "../cart/DeleteItem";
+import { UpdateItemQuantity } from "../cart/UpdateItemQuantity";
 import { Button } from "../ui/Button";
 
 interface PizzaListProps {
@@ -41,7 +42,7 @@ export const MenuItem = ({
         <p className="text-sm text-stone-500 capitalize italic">
           {ingredients.join(", ")}
         </p>
-        <div className="mt-auto flex items-center justify-between">
+        <div className="mt-auto flex flex-wrap items-center justify-between sm:flex-nowrap">
           {!soldOut ? (
             <p className="text-sm">{formatCurrency(unitPrice)}</p>
           ) : (
@@ -49,9 +50,17 @@ export const MenuItem = ({
               Sold out
             </p>
           )}
-          {isInCart && <DeleteItem pizzaId={id} />}
+          {isInCart && (
+            <div className="flex items-center gap-3 sm:gap-8">
+              <UpdateItemQuantity
+                currentQuantity={currentPizzaQuantity}
+                pizzaId={id}
+              />
+              <DeleteItem pizzaId={id} />
+            </div>
+          )}
           {!soldOut && !isInCart && (
-            <Button type="small" onClick={handleAddToCart}>
+            <Button typeOfBtn="small" onClick={handleAddToCart}>
               Add to cart
             </Button>
           )}
