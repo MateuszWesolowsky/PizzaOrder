@@ -9,7 +9,7 @@ interface Props {
 export const DeleteItem = ({ pizzaId }: Props) => {
   const dispatch = useAppDispatch();
   return (
-    <Button type="small" onClick={() => dispatch(deleteItem(pizzaId))}>
+    <Button typeOfBtn="small" onClick={() => dispatch(deleteItem(pizzaId))}>
       Delete
     </Button>
   );
