@@ -40,6 +40,9 @@ const cartSlice = createSlice({
         item.quantity--;
         item.totalPrice = item.quantity * item.unitPrice;
       }
+      if (item?.quantity === 0) {
+        cartSlice.caseReducers.deleteItem(state, action);
+      }
     },
     clearCart(state) {
       state.cart = [];
@@ -70,10 +73,6 @@ export const getTotalCartQuantity = createSelector([selectCart], (cart) =>
 export const getTotalCartPrice = createSelector([selectCart], (cart) =>
   cart.reduce((sum, item) => sum + item.totalPrice, 0),
 );
-
-//nie trzeba memoizować, poznieważ id się zmieni zawsze
-// export const getCurrentQuantityById = (id: number) =>
-//   createSelector([selectCart], (cart) => cart.find((el) => el.pizzaId === id));
 
 export const getCurrentQuantityById = (id: number) => (state: RootState) =>
   state.cart.cart.find((el) => el.pizzaId === id)?.quantity ?? 0;
