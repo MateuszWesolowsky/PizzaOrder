@@ -1,6 +1,5 @@
 import { Outlet, useNavigation } from "react-router";
 import { Header } from "./Header";
-
 import { Spinner } from "./Spinner";
 import { CartOverview } from "../cart/CartOverview";
 
