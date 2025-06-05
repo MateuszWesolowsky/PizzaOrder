@@ -16,7 +16,7 @@ export const Home = () => {
       {!userName ? (
         <CreateUser />
       ) : (
-        <Button to="/menu" type="primary">
+        <Button to="/menu" typeOfBtn="primary">
           Continue ordering, {userName}
         </Button>
       )}
