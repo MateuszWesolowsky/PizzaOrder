@@ -33,7 +33,7 @@ export const CreateUser = () => {
 
       {username !== "" && (
         <div>
-          <Button to="/order/new" type="primary">
+          <Button type="submit" typeOfBtn="primary">
             Start ordering
           </Button>
         </div>
