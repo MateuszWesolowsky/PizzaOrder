@@ -1,6 +1,10 @@
 # 🍕 Order Pizza App
 
 A simple pizza ordering application built with **React**, **Redux Toolkit**, and **TypeScript**. Users can browse pizzas, add them to a cart, and place an order.
+  
+## 🔗 Live Demo
+
+👉 [View the live app on Netlify](https://pizzaorderproject.netlify.app/)
 
 ## 🧩 Features
 
